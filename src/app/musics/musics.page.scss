@@ -1,0 +1,24 @@
+// ion-content {
+//     background-image:url("logobetter.png");
+// }
+
+.title_card {
+    font-size: large;
+}
+
+.titlemieux {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+// .background {
+//     opacity:0.3;
+// }
+
+ion-content.background{
+    --background: url(../../assets/test.png);
+    --ion-background-color: transparent;
+}
+
+// ion-thumbnail{
+//     --size: ;
+// }

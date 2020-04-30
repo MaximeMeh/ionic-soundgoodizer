@@ -1,0 +1,6 @@
+<ion-item [routerLink]="['/musics', musicItem.id]">
+  <ion-avatar slot="start">
+    <ion-img [src]="musicItem.imageUrl"></ion-img>
+  </ion-avatar>
+  <ion-label> {{ musicItem.title }} </ion-label>
+</ion-item>

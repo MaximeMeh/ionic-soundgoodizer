@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar color="light">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/musics"></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="primary">
+      <ion-button (click)="onDeleteMusic()" slot="end" fill="clear" color="dark">
+        <ion-icon name="trash" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>{{ loadedMusic.title }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding class="background">
+  <ion-grid>
+    <ion-row>
+      <ion-col class="ion-no-padding">
+        <ion-img  [src]="loadedMusic.imageUrl"></ion-img></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <h1>{{ loadedMusic.title }}</h1>
+      </ion-col>
+    </ion-row>
+
+    <div class="container">
+      <ion-range (click)="changePosition()" min="0" [max]="audioDuration" [(ngModel)]="currentPosition" mode="ios" ios="warning"></ion-range>
+      <p>Temps restant: {{ restTime }}</p>
+        
+      <div class="flex_box">
+
+        <ion-button (click)="seekTo(-30000)" fill="clear" color="dark">
+          <ion-icon name="play-back"></ion-icon>
+        </ion-button>
+        <ion-button (click)="playPause()" fill="clear" color="dark">
+          <ion-icon [name]="playIcon"></ion-icon>
+        </ion-button>
+        <ion-button (click)="seekTo(30000)" fill="clear" color="dark">
+          <ion-icon name="play-forward"></ion-icon>
+        </ion-button>
+
+      </div>
+    </div>
+    <br>
+    <ion-row>
+      <ion-col>
+        <ion-label>
+          {{ loadedMusic.description }}
+        </ion-label>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

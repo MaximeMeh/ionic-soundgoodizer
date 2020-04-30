@@ -1,0 +1,20 @@
+#container {
+    text-align: center;
+    padding: 20px;
+  }
+ 
+  ion-range {
+    padding: 0px 10px;
+    --bar-height: 3px;
+  }
+  p {
+    // color: #b7b6b6;
+    font-size: 13px;
+    margin: 0px;
+    font-weight: 500;
+  }
+
+  ion-content.background{
+    --background: url(../../../assets/test.png);
+    --ion-background-color: transparent;
+}

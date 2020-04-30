@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar color="light">
+    <img src="../../assets/logobetter.png" height="40" width="40">
+    <div class="titlemieux">
+    <ion-title >Soundgoodizer</ion-title>
+    </div>
+    <ion-button [routerLink]="['/login']" slot="end" fill="clear" color="dark">
+      <ion-icon name="person-circle" slot="icon-only"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+  
+</ion-header>
+
+<ion-content padding class="background">
+  <ion-item>
+    <ion-label>Titres aimés</ion-label>
+  </ion-item>
+  <ion-list>
+       <!-- <app-music-item *ngFor="let music of musics" [musicItem]="music"></app-music-item> -->
+  </ion-list>
+
+
+
+</ion-content>
+
+  <ion-footer>
+    <ion-toolbar color="light">
+        <ion-tabs>
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button [routerLink]="['/musics']">
+        <ion-icon name="home"></ion-icon>
+        <ion-label>Accueil</ion-label>
+      </ion-tab-button>
+  
+      <ion-tab-button [routerLink]="['/searchbar']" >
+        <ion-icon name="search"></ion-icon>
+        <ion-label>Recherche</ion-label>
+      </ion-tab-button>
+  
+      <ion-tab-button>
+        <ion-icon name="library"></ion-icon>
+        <ion-label>Bibliothèque</ion-label>
+      </ion-tab-button>
+  
+      <ion-tab-button tab="about">
+        <ion-icon name="headset"></ion-icon>
+        <ion-label>Actu</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+    </ion-toolbar>
+  </ion-footer>
