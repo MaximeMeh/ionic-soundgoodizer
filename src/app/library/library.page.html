@@ -16,7 +16,7 @@
     <ion-label>Titres aimés</ion-label>
   </ion-item>
   <ion-list>
-       <!-- <app-music-item *ngFor="let music of musics" [musicItem]="music"></app-music-item> -->
+
   </ion-list>
 
 
@@ -42,7 +42,7 @@
         <ion-label>Bibliothèque</ion-label>
       </ion-tab-button>
   
-      <ion-tab-button tab="about">
+      <ion-tab-button [routerLink]="['/trend']">
         <ion-icon name="headset"></ion-icon>
         <ion-label>Actu</ion-label>
       </ion-tab-button>

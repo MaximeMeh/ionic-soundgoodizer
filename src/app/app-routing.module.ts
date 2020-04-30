@@ -9,6 +9,7 @@ const routes: Routes = [
   { path: 'register', loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)},
   { path: 'searchbar', loadChildren: () => import('./searchbar/searchbar.module').then( m => m.SearchbarPageModule)},
   { path: 'library', loadChildren: () => import('./library/library.module').then( m => m.LibraryPageModule)},
+  { path: 'trend', loadChildren: () => import('./trend/trend.module').then( m => m.TrendPageModule)},
   {
     path: 'musics',
     children: [
@@ -37,6 +38,10 @@ const routes: Routes = [
   {
     path: 'library',
     loadChildren: () => import('./library/library.module').then( m => m.LibraryPageModule)
+  },
+  {
+    path: 'trend',
+    loadChildren: () => import('./trend/trend.module').then( m => m.TrendPageModule)
   },
 ];
 
