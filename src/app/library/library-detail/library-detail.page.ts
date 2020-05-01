@@ -1,18 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { MusicsService } from '../musics.service';
-import { Music } from '../musics.model';
+import { LibraryService } from '../library.service';
+import { Library } from '../library.model';
 import { AlertController } from '@ionic/angular';
 import { Media, MediaObject } from '@ionic-native/media/ngx';
 import { Platform } from '@ionic/angular';
 
 @Component({
-  selector: 'app-musics-detail',
-  templateUrl: './musics-detail.page.html',
-  styleUrls: ['./musics-detail.page.scss'],
+  selector: 'app-library-detail',
+  templateUrl: './library-detail.page.html',
+  styleUrls: ['./library-detail.page.scss'],
 })
-export class MusicsDetailPage implements OnInit {
-  loadedMusic: Music;
+export class LibraryDetailPage implements OnInit {
+  loadedLibrary: Library;
   file: MediaObject;
   playIcon= 'pause';
   audioDuration: number;
@@ -20,7 +20,7 @@ export class MusicsDetailPage implements OnInit {
   restTime: string;
 
   constructor(private activatedRoute: ActivatedRoute,
-              private musicsService: MusicsService,
+              private libraryService: LibraryService,
               private router: Router,
               private alertCtrl: AlertController,
               public media: Media,
@@ -28,39 +28,37 @@ export class MusicsDetailPage implements OnInit {
 
   ngOnInit() {
     this.activatedRoute.paramMap.subscribe(paramMap => {
-      if (!paramMap.has('musicId')) {
-        this.router.navigate(['/musics']);
+      if(!paramMap.has('libraryId')) {
         return;
       }
-      const musicId = paramMap.get('musicId');
-      this.loadedMusic = this.musicsService.getMusic(musicId);
+      const libraryId = paramMap.get('libraryId');
+      this.loadedLibrary = this.libraryService.getLibrary(libraryId);
       this.platform.ready().then(() => {
         this.readAudio();
       });
     });
   }
 
-  onDeleteMusic() {
-      this.alertCtrl.create({
-        header: 'Es-tu sûr?',
-        message: 'Veux-tu vraiment effacer?',
-        buttons: [{
+  onDeleteLibrary() {
+    this.alertCtrl.create({
+      header: 'Voulez vous vraiment supprimer?',
+      message: 'Etes vous sur de vouloir supprimer cette musique de votre playlist?',
+      buttons: [
+        {
           text: 'Annuler',
           role: 'cancel'
         },
         {
-          text: 'Confirmer',
+          text: 'Supprimer',
           handler: () => {
-            this.musicsService.deleteMusic(this.loadedMusic.id);
-            this.router.navigate(['/musics']);
+            this.libraryService.deleteLibrary(this.loadedLibrary.id);
+            this.router.navigate(['/library']);
           }
         }
       ]
-    })
-    .then(alertEl => {
+    }).then(alertEl => {
       alertEl.present();
-    });
-    
+    }); 
   }
 
   readAudio() {

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { MusicsService } from '../musics/musics.service';
-import { Music } from '../musics/musics.model';
+import { Library } from './library.model';
+import { LibraryService } from './library.service';
 
 @Component({
   selector: 'app-library',
@@ -9,12 +9,12 @@ import { Music } from '../musics/musics.model';
   styleUrls: ['./library.page.scss'],
 })
 export class LibraryPage implements OnInit {
-  musics: Music[];
+  librarys: Library[];
 
-  constructor(private musicsService: MusicsService) { }
+  constructor(private libraryService: LibraryService) { }
 
   ngOnInit() {
-    this.musics = this.musicsService.getAllMusics();
+    this.librarys = this.libraryService.getAllLibrary();
   }
 
 }

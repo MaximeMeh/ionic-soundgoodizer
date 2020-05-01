@@ -1,26 +1,28 @@
 <ion-header>
   <ion-toolbar color="light">
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/musics"></ion-back-button>
+      <ion-back-button defaultHref="/library"></ion-back-button>
     </ion-buttons>
     <ion-buttons slot="primary">
-      <ion-button (click)="onDeleteMusic()" slot="end" fill="clear" color="dark">
-        <ion-icon name="add" slot="icon-only"></ion-icon>
+      <ion-button (click)="onDeleteLibrary()" slot="end" fill="clear" color="dark">
+        <ion-icon name="trash" slot="icon-only"></ion-icon>
       </ion-button>
     </ion-buttons>
-    <ion-title>{{ loadedMusic.title }}</ion-title>
+    <ion-title>{{ loadedLibrary.title }}</ion-title>
   </ion-toolbar>
+  
 </ion-header>
 
 <ion-content padding class="background">
+
   <ion-grid>
     <ion-row>
       <ion-col class="ion-no-padding">
-        <ion-img  [src]="loadedMusic.imageUrl"></ion-img></ion-col>
+        <ion-img  [src]="loadedLibrary.imageUrl"></ion-img></ion-col>
     </ion-row>
     <ion-row>
       <ion-col>
-        <h1>{{ loadedMusic.title }}</h1>
+        <h1>{{ loadedLibrary.title }}</h1>
       </ion-col>
     </ion-row>
 
@@ -46,10 +48,39 @@
     <ion-row>
       <ion-col>
         <ion-label>
-          {{ loadedMusic.description }}
+          {{ loadedLibrary.description }}
         </ion-label>
       </ion-col>
     </ion-row>
   </ion-grid>
 
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar color="light">
+      <ion-tabs>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button [routerLink]="['/musics']">
+      <ion-icon name="home"></ion-icon>
+      <ion-label>Accueil</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button [routerLink]="['/searchbar']" >
+      <ion-icon name="search"></ion-icon>
+      <ion-label>Recherche</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button>
+      <ion-icon name="library"></ion-icon>
+      <ion-label>Bibliothèque</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button [routerLink]="['/trend']">
+      <ion-icon name="headset"></ion-icon>
+      <ion-label>Actu</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>
+  </ion-toolbar>
+</ion-footer>
+

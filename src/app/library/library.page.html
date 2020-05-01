@@ -13,14 +13,19 @@
 
 <ion-content padding class="background">
   <ion-item>
-    <ion-label>Titres aimés</ion-label>
+    <ion-label class="grandtitre">Titres aimés</ion-label>
   </ion-item>
-  <ion-list>
-
+  <ion-list *ngFor="let library of librarys" [routerLink]="['./', library.id]">
+    <ion-item>
+      <ion-avatar slot="start">
+        <ion-img [src]="library.imageUrl"></ion-img>
+      </ion-avatar>
+      <ion-label> {{ library.title }} </ion-label>
+  </ion-item>
   </ion-list>
 
 
-
+ 
 </ion-content>
 
   <ion-footer>

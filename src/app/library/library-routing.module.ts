@@ -7,6 +7,10 @@ const routes: Routes = [
   {
     path: '',
     component: LibraryPage
+  },
+  {
+    path: 'library-detail',
+    loadChildren: () => import('./library-detail/library-detail.module').then( m => m.LibraryDetailPageModule)
   }
 ];
 
