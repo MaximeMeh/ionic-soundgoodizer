@@ -20,9 +20,15 @@ export class MusicsService {
     },
     {
       id: 'r3',
-      title: 'L Impératrice — VANILLE FRAISE',
+      title: 'L Impératrice - VANILLE FRAISE',
       imageUrl: 'https://i1.sndcdn.com/artworks-000104850680-lfl4vy-t500x500.jpg',
       description: 'STREAM THAT SWEET ICE-CREAM → qlima.cool/VanilleFraise VINYL RECORD → bit.ly/ODYSSEE_vinyl VIDEO ♗ CLIP → youtu.be/iZAqaykiS70'
+    },
+    {
+      id: 'r4',
+      title: 'Flight Facilities - Need You ft. NÏKA',
+      imageUrl: 'https://i1.sndcdn.com/artworks-000308962431-lzrm2j-t500x500.jpg',
+      description: 'Flight Facilities — Need You feat. NÏKA Stream & download: futr.cl/NeedYou'
     }
   ];
 
@@ -40,10 +46,14 @@ export class MusicsService {
     };
   }
 
-  deleteMusic(musicId: string) {
-    this.musics = this.musics.filter(music => {
-      return music.id !== musicId;
-    });
+  addMusic(musicId: string, event) {
+    // this.musics = this.musics.filter(music => {
+    //   return music.id !== musicId;
+      
+    // });
+
+    console.log(musicId);
+    
   }
 
 }

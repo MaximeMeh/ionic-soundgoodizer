@@ -1,5 +1,5 @@
 ion-content.background{
-    --background: url(../../assets/test.png);
+    --background: url(../../assets/pkmarchepa.png);
     --ion-background-color: transparent;
 }
 
@@ -11,4 +11,13 @@ ion-content.background{
     font-size: large;
     text-align: center;
     font-weight:bold;
+}
+
+ion-card-content {
+    padding: 5%;
+}
+
+ion-slide {
+    margin-right:0px;
+    padding:0;
 }

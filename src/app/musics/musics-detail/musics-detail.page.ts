@@ -40,27 +40,11 @@ export class MusicsDetailPage implements OnInit {
     });
   }
 
-  onDeleteMusic() {
-      this.alertCtrl.create({
-        header: 'Es-tu sûr?',
-        message: 'Veux-tu vraiment effacer?',
-        buttons: [{
-          text: 'Annuler',
-          role: 'cancel'
-        },
-        {
-          text: 'Confirmer',
-          handler: () => {
-            this.musicsService.deleteMusic(this.loadedMusic.id);
-            this.router.navigate(['/musics']);
-          }
-        }
-      ]
-    })
-    .then(alertEl => {
-      alertEl.present();
-    });
-    
+  onAddMusic() {
+     
+    this.musicsService.addMusic(this.loadedMusic.id);
+    this.router.navigate(['/musics']);
+           
   }
 
   readAudio() {

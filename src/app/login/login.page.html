@@ -41,9 +41,13 @@
                       </ion-item>
                       <ion-col class="ion-margin-vertical ion-text-center">
                           <div>
-                              <ion-button (click)="createAccount()" fill="outline" id="btn-create-account">S'incrire</ion-button>
-                              <ion-button (click)="login()" id="btn-connect-account">Se connecter</ion-button>
-                              <ion-button (click)="logout()" id="btn-connect-account">Se déconnecter</ion-button>
+                                <ion-button (click)="createAccount()" fill="outline" id="btn-create-account">S'incrire</ion-button>
+                                <div *ngIf="!connected">
+                                    <ion-button (click)="login()" id="btn-connect-account">Se connecter</ion-button>
+                                </div>
+                                <div *ngIf="connected">
+                                    <ion-button (click)="logout()" id="btn-connect-account">Se déconnecter</ion-button>
+                                </div>
                           </div>
                       </ion-col>
                   </ion-card-content>
