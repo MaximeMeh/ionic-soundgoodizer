@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MusicsService } from '../musics.service';
 import { Music } from '../musics.model';
 import { AlertController } from '@ionic/angular';
 import { Media, MediaObject } from '@ionic-native/media/ngx';
 import { Platform } from '@ionic/angular';
+import { MusicsDetailService } from './musics-detail.service';
 
 @Component({
   selector: 'app-musics-detail',
@@ -18,9 +19,11 @@ export class MusicsDetailPage implements OnInit {
   audioDuration: number;
   currentPosition: number;
   restTime: string;
+  @Output('addMusic') addMusic = new EventEmitter;
 
   constructor(private activatedRoute: ActivatedRoute,
               private musicsService: MusicsService,
+              private service: MusicsDetailService,
               private router: Router,
               private alertCtrl: AlertController,
               public media: Media,
@@ -41,9 +44,14 @@ export class MusicsDetailPage implements OnInit {
   }
 
   onAddMusic() {
-     
-    this.musicsService.addMusic(this.loadedMusic.id);
-    this.router.navigate(['/musics']);
+    this.service.onAddMusic();
+    // this.addMusic.emit({
+    //   id: 'r4',
+    //   title: 'Flight Facilities - Need You ft. NÏKA',
+    //   imageUrl: 'https://i1.sndcdn.com/artworks-000308962431-lzrm2j-t500x500.jpg',
+    //   description: 'Flight Facilities — Need You feat. NÏKA Stream & download: futr.cl/NeedYou'
+    // });
+    // this.router.navigate(['/musics']);
            
   }
 

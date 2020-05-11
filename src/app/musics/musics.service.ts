@@ -46,14 +46,4 @@ export class MusicsService {
     };
   }
 
-  addMusic(musicId: string, event) {
-    // this.musics = this.musics.filter(music => {
-    //   return music.id !== musicId;
-      
-    // });
-
-    console.log(musicId);
-    
-  }
-
 }
