@@ -12,10 +12,11 @@
 </ion-header>
 
 <ion-content padding class="background">
-  <ion-item>
-    <ion-label class="grandtitre">Titres aimés</ion-label>
-  </ion-item>
   <div *ngIf="isUserLogged">
+  <ion-item>
+    <ion-label class="grandtitre">Titres aimés par {{ user.email }}</ion-label>
+  </ion-item>
+  
     <ion-list *ngFor="let library of librarys" [routerLink]="['./', library.id]">
       <ion-item>
         <ion-avatar slot="start">
@@ -24,9 +25,21 @@
         <ion-label> {{ library.title }} </ion-label>
       </ion-item>
     </ion-list>
-  </div>
-  
 
+  <div *ngIf="music">
+    <ion-item>
+      <ion-avatar slot="start">
+        <ion-img [src]="music.imageUrl"></ion-img>
+      </ion-avatar>
+      <ion-label> {{ music.title }} </ion-label>
+    </ion-item>
+  </div>
+
+  </div>
+
+  <div *ngIf="!isUserLogged">
+    <h1 style="font-family: Consolas; text-align: center;">Veuillez vérifiez que vous possédez bien un compte!</h1>
+  </div>
 
  
 </ion-content>

@@ -35,7 +35,7 @@ export class LibraryPage implements OnInit {
     this.musicDetailService.$musicIn
       .subscribe( (song) => {
         console.log("Music is added in library", song);
-        // this.isUserLogged = true;
+        this.isUserLogged = true;
         this.music = song;
       })
     // this.user = this.loginPage.connected;
